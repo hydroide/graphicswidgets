@@ -46,7 +46,8 @@ SOURCES += \
     stagechart.cpp \
     stagedischargerelationcurveitem.cpp \
     vchart.cpp \
-    view.cpp
+    view.cpp \
+    viewer.cpp
 
 HEADERS += \
         graphicswidgets.h \
@@ -68,7 +69,8 @@ HEADERS += \
     stagechart.h \
     stagedischargerelationcurveitem.h \
     vchart.h \
-    view.h
+    view.h \
+    viewer.h
 
 unix {
     target.path = /usr/lib
