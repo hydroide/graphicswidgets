@@ -18,13 +18,12 @@ void Viewer::loadToolBar()
 
 }
 
-ViewerWindow::ViewerWindow(Viewer *viewer, QWidget *parent)
+ViewerWindow::ViewerWindow(QWidget *viewer, QWidget *parent)
     : QMainWindow(parent)
 {
+//    auto viewer = qobject_cast<Viewer *>(widget);
     if (viewer) {
         viewer->setParent(this);
-//        viewer->setWindow(this);
-        _viewer = viewer;
-        this->setCentralWidget(_viewer);
+        this->setCentralWidget(viewer);
     }
 }

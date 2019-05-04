@@ -49,10 +49,6 @@ class ViewerWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit ViewerWindow(Viewer *viewer, QWidget *parent = nullptr);
-
-protected:
-    Viewer *_viewer {nullptr};
-
+    explicit ViewerWindow(QWidget *viewer, QWidget *parent = nullptr);
 };
 #endif // VIEWER_H
