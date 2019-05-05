@@ -6,6 +6,9 @@
 
 #include <QtWidgets>
 
+/**
+ * @brief The ColorDelegate class, 颜色选择器代理
+ */
 class ColorDelegate : public QItemDelegate
 {
     Q_OBJECT
