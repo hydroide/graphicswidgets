@@ -24,7 +24,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 INCLUDEPATH    += \
     ../commons
 
-LIBS += -L../commons/release -lcommons
+win32 {
+    CONFIG(debug, release|debug): LIBSUBDIR = debug/
+    CONFIG(release, release|debug): LIBSUBDIR = release/
+}
+
+LIBS += -L../commons/$$LIBSUBDIR -lcommons
 
 SOURCES += \
         graphicswidgets.cpp \
