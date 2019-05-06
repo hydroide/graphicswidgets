@@ -23,6 +23,7 @@ public:
     QStringList stcds() const;
 
     virtual QString drawType() const = 0;
+    virtual void updateData() = 0;
 
     virtual void addSeries(SpProcessSeries series);
     virtual void addSeries(QString stcd, SpProcessSeries series);

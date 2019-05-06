@@ -23,6 +23,7 @@ public:
     // ProcessChart interface
 protected:
     ProcessMap &currentMap(SpProcessSeries series);
+    void updateData();
 };
 
 #endif // DISCHARGECHART_H

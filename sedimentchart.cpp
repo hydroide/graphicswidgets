@@ -22,3 +22,12 @@ ProcessMap &SedimentChart::currentMap(SpProcessSeries series)
 {
     return series->mSediments();
 }
+
+void SedimentChart::updateData()
+{
+    for (auto series: _seriesMap)
+    {
+        series->genSedimentMap();
+        series->genMeasuredSedimentDischargeMap();
+    }
+}

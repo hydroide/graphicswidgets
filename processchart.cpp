@@ -24,7 +24,7 @@ void ProcessChart::setStartDateTime(const QDateTime &startDateTime)
         if (startDateTime < series->startDateTime() || startDateTime > series->endDateTime())
         {
             series->setStartDateTime(startDateTime);
-            series->updateMaps();
+            this->updateData();
         }
     }
     update();
@@ -43,7 +43,7 @@ void ProcessChart::setEndDateTime(const QDateTime &endDateTime)
         if (endDateTime < series->startDateTime() || endDateTime > series->endDateTime())
         {
             series->setEndDateTime(endDateTime);
-            series->updateMaps();
+            this->updateData();
         }
     }
     update();
@@ -79,7 +79,7 @@ void ProcessChart::addSeries(QString stcd, SpProcessSeries series)
     {
         _seriesMap[stcd] = series;
     }
-    update();
+//    update();
 }
 
 void ProcessChart::removeSeries(QString stcd)
@@ -88,7 +88,7 @@ void ProcessChart::removeSeries(QString stcd)
     {
         _seriesMap.remove(stcd);
     }
-    update();
+//    update();
 }
 
 void ProcessChart::clearSeries()

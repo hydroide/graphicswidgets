@@ -25,3 +25,12 @@ ProcessMap &DischargeChart::currentMap(SpProcessSeries series)
 {
     return series->mDischarges();
 }
+
+void DischargeChart::updateData()
+{
+    for (auto series: _seriesMap)
+    {
+        series->genDischargeMap();
+        series->genMeasuredDischargeMap();
+    }
+}

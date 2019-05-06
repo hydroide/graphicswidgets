@@ -24,6 +24,7 @@ public:
     // ProcessChart interface
 protected:
     ProcessMap &currentMap(SpProcessSeries series);
+    void updateData();
 };
 
 #endif // SEDIMENTCHART_H

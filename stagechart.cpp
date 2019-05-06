@@ -23,3 +23,11 @@ ProcessMap &StageChart::currentMap(SpProcessSeries series)
 {
     return series->mStages();
 }
+
+void StageChart::updateData()
+{
+    for (auto series: _seriesMap)
+    {
+        series->genStageMap();
+    }
+}
