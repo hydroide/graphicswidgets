@@ -51,7 +51,6 @@ QPointF DischargeMeasurementPointItem::getPoint() const
                 + _pChart->xOffset();
         qreal y = _measuredDischarge.stage.toDouble()*_pChart->yUnitLength()
                 + _pChart->yOffset();
-//        qDebug() << _measuredDischarge.stage << y << _measuredDischarge.discharge << x;
         y = _pChart->geometry().height() - y;
         return QPointF(x, y);
     }

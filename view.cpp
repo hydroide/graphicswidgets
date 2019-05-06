@@ -117,7 +117,6 @@ void View::setChart(VChart *chart)
 
 void View::mouseMoveEvent(QMouseEvent *event)
 {
-//    qDebug() << e->pos();
     if (event->buttons() & Qt::LeftButton)
     {
 

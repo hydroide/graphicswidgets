@@ -11,7 +11,6 @@ QRectF ProcessPointItem::boundingRect() const
 void ProcessPointItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->drawPoint(getPoint());
-    qDebug() << getPoint();
     painter->drawEllipse(getPoint(), 5.f, 5.f);
 
     auto textPoint = boundingRect().topRight();
