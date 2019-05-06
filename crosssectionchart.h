@@ -7,7 +7,7 @@
 #include "vchart.h"
 //#include "../models/crosssectionseries.h"
 
-#include "globaldefines.h"
+#include "hcglobaldefs.h"
 
 class CrossSectionChart : public VChart
 {

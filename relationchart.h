@@ -8,7 +8,7 @@
 
 #include "vchart.h"
 
-#include "globaldefines.h"
+#include "hcglobaldefs.h"
 
 class RelationChart : public VChart
 {

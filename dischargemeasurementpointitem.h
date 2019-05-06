@@ -8,7 +8,7 @@
 #include <QtGui>
 #include <QtWidgets>
 
-#include "globaldefines.h"
+#include "hcglobaldefs.h"
 #include "modules/curvestructs.h"
 #include "vchart.h"
 

@@ -7,7 +7,7 @@
 #include <QtCore>
 #include <QtWidgets>
 
-#include "globaldefines.h"
+#include "hcglobaldefs.h"
 
 class ProcessXAxisWidget : public QWidget
 {

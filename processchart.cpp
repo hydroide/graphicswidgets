@@ -3,7 +3,7 @@
 #endif
 #include "processchart.h"
 
-#include "globaldefines.h"
+#include "hcglobaldefs.h"
 
 ProcessChart::ProcessChart(QGraphicsItem *parent)
     : VChart(parent)

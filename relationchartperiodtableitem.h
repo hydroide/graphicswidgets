@@ -8,7 +8,7 @@
 #include <QtGui>
 #include <QtWidgets>
 
-#include "globaldefines.h"
+#include "hcglobaldefs.h"
 #include "vchart.h"
 
 class RelationChartPeriodTableItem : public QGraphicsTextItem
