@@ -3,8 +3,6 @@
 #endif
 #include "relationchart.h"
 
-//#include "../interpolation.h"
-
 #include "stagedischargerelationcurveitem.h"
 
 RelationChart::RelationChart(QGraphicsItem *parent)
