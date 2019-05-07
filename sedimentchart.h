@@ -24,6 +24,7 @@ public:
     // ProcessChart interface
 protected:
     ProcessMap &currentMap(SpProcessSeries series);
+    QMap<QDateTime, QPair<QString, QString> > currentPoints(SpProcessSeries series);
     void updateData();
 };
 

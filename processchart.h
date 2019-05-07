@@ -33,7 +33,10 @@ public:
     void updateUnits();
 
 protected:
-    virtual ProcessMap &currentMap(SpProcessSeries series);
+    virtual ProcessMap &currentMap(SpProcessSeries series) = 0;
+    virtual QMap<QDateTime, QPair<QString, QString> > currentPoints(SpProcessSeries series) {
+        return QMap<QDateTime, QPair<QString, QString> >();
+    }
 
     virtual void paintSeries(QPainter *painter);
     virtual void paintPoints(QPainter *painter);

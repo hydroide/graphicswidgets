@@ -127,11 +127,6 @@ void ProcessChart::updateUnits()
     Q_EMIT this->yUnitChanged(_minY, _maxY, _yUnitLength);
 }
 
-ProcessMap &ProcessChart::currentMap(SpProcessSeries series)
-{
-    return series->mStages();
-}
-
 void ProcessChart::paintSeries(QPainter *painter)
 {
     updateUnits();
@@ -141,7 +136,7 @@ void ProcessChart::paintSeries(QPainter *painter)
         int i = 0;
         painter->setPen(series->lineColor());
         auto data = currentMap(series).data();
-        auto drawPoint = [&] (const QDateTime &key) {
+        auto draw = [&] (const QDateTime &key) {
             qreal val = data.value(key).toDouble();
             auto hours = (qreal)(key.toMSecsSinceEpoch()
                                  - startDateTime().toMSecsSinceEpoch())
@@ -165,14 +160,43 @@ void ProcessChart::paintSeries(QPainter *painter)
             {
                 continue;
             }
-            drawPoint(key);
+            draw(key);
         }
     }
 }
 
 void ProcessChart::paintPoints(QPainter *painter)
 {
+    updateUnits();
+    for (auto series : _seriesMap)
+    {
+        painter->setPen(series->lineColor());
+        painter->setFont(QFont(DEFAULT_NUMERIAL_FONTFAMILTY));
+        auto data = currentPoints(series);
+        auto draw = [&] (const QDateTime &key) {
+            auto msn = data.value(key).first;
+            auto val = data.value(key).second.toDouble();
+            auto hours = (qreal)(key.toMSecsSinceEpoch()
+                                 - startDateTime().toMSecsSinceEpoch())
+                    /INT_MSECS_PER_HOURS;
+            auto units = _maxY - val;
+            QPointF point(hours*_xUnitLength, units*_yUnitLength);
+            painter->drawEllipse(point, 5.f, 5.f);
+            painter->drawEllipse(point, 1.f, 1.f);
+            painter->drawText(QPointF(point.x() + 2, point.y() - 2), QString("%1").arg(msn));
+        };
 
+        for (auto key : data.keys())
+        {
+            // draw one more days
+            if (key < _startDateTime.addMSecs(-24*INT_MSECS_PER_HOURS)
+                || key > _endDateTime.addMSecs(24*INT_MSECS_PER_HOURS))
+            {
+                continue;
+            }
+            draw(key);
+        }
+    }
 }
 
 qreal ProcessChart::hourFromPosX(qreal posX)
